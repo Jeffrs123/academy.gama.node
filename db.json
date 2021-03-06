@@ -1,0 +1,39 @@
+{
+  "lancamentos": [
+    {
+      "id": 1,
+      "descricao": "pão na chapa",
+      "valor": -65.98,
+      "categoria": "Alimentação",
+      "criacao": 1614730980
+    },
+    {
+      "id": 2,
+      "descricao": "pagamento",
+      "valor": 500.98,
+      "categoria": "Salário",
+      "criacao": 1614730980
+    },
+    {
+      "id": 3,
+      "descricao": "almoço do mês",
+      "valor": -300,
+      "categoria": "Alimentação",
+      "criacao": 1614730980
+    }
+  ],
+  "alunos": [
+    {
+      "id": 1,
+      "curso": "node"
+    },
+    {
+      "id": 2,
+      "curso": "java"
+    },
+    {
+      "id": 3,
+      "curso": "angular"
+    }
+  ]
+}
