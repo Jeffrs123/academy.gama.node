@@ -19,11 +19,17 @@ module.exports = [
   },{
     method: 'GET',
     path: '/alunos',
-    handler: AlunosController.listarAlunos
+    handler: AlunosController.listarAlunos,
+    config: {
+      auth: false
+    }
   },{
     method: 'GET',
     path: '/lancamentos',
-    handler: LancamentosController.listarLancamentos
+    handler: LancamentosController.listarLancamentos,
+    config: {
+      auth: false
+    }
   },
   /*{
     method: 'GET',

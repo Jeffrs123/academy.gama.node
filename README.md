@@ -50,3 +50,7 @@ Para rodar o JSON Server usando como banco de dados o `db.json`, use o comando a
 json-server "db.json" --port 3030
 ```
 
+
+
+Rodar e pegar o bearer para usar com seu postman:
+node jwt.js sign chavesecreta '{"sub":"email@dominio.com"}'

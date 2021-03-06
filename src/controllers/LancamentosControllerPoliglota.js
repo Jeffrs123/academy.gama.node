@@ -1,6 +1,7 @@
 function obterConfig(req) {
   return req.headers['x-persistence'] === 'rest'
-    ? 'http://localhost:3030'
+  ? 'http://localhost:3030'
+  //? 'http://localhost:8080/api/v1'
     : req.server.plugins['hapi-mongodb'].db;
 }
 
