@@ -53,4 +53,6 @@ json-server "db.json" --port 3030
 
 
 Rodar e pegar o bearer para usar com seu postman:
-node jwt.js sign chavesecreta '{"sub":"email@dominio.com"}'
+terminal / raíz: node jwt.js sign chavesecreta '{"sub":"email@dominio.com"}'
+
+terminal / raíz: npm start

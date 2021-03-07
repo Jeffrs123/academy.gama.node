@@ -1,15 +1,8 @@
-function obterConfig(req) {
-    return req.headers['x-persistence'] === 'rest'
-    ? 'http://localhost:3030'
-    //? 'http://localhost:8080/api/v1'
-    : req.server.plugins['hapi-mongodb'].db;
-}
+const ConfigResolver = require("../core/ConfigResolver");
 
 exports.listarAlunos = async (req, h) => {
-    console.log('POLIGLOT ALUNOS req: ' + req.headers['x-persistence'])
-    const persistencia = req.headers['x-persistence'];
-    const LancamentosRepository = require(`../repositories/${persistencia}/AlunosRepository.js`);
-    const repositorio = new LancamentosRepository(obterConfig(req));
+    const LancamentosRepository = require(`../repositories/${ConfigResolver.requestResolver(req).FILE}/AlunosRepository.js`);
+    const repositorio = new LancamentosRepository(ConfigResolver.requestResolver(req).URL);
     return repositorio.list();
 }
 
