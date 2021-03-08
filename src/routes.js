@@ -5,32 +5,39 @@ const AutorizacaoController = require('./controllers/AutorizacaoController.js');
 
 module.exports = [
   {
-    method: 'GET',
-    path: '/javascript',
-    handler: LinguagemController.javascript,
+    method: 'POST',
+    path: '/token',
+    handler: AutorizacaoController.token,
     config: {
       auth: false
     }
   },
   {
     method: 'POST',
-    path: '/python',
-    handler: LinguagemController.python
-  },{
-    method: 'GET',
     path: '/alunos',
-    handler: AlunosController.listarAlunos,
-    config: {
-      auth: false
-    }
-  },{
-    method: 'GET',
-    path: '/lancamentos',
-    handler: LancamentosController.listarLancamentos,
+    handler: AlunosController.createAluno,
     config: {
       auth: false
     }
   },
+  {
+    method: 'GET',
+    path: '/alunos',
+    handler: AlunosController.getAllAlunos,
+    config: {
+      auth: false
+    }
+  },
+  {
+    method: 'GET',
+    path: '/alunos/{id}',
+    handler: AlunosController.getAlunoById,
+    config: {
+      auth: false
+    }
+  },
+  
+];
   /*{
     method: 'GET',
     path: '/lancamentos',
@@ -76,10 +83,14 @@ module.exports = [
     path: '/lancamentos/por-categoria',
     handler: LancamentosController.agruparPorCategoria
   },
-  */
+  ,
   {
-    method: 'POST',
-    path: '/token',
-    handler: AutorizacaoController.token,
-  },
-];
+    method: 'GET',
+    path: '/lancamentos',
+    handler: LancamentosController.listarLancamentos,
+    config: {
+      auth: false
+    }
+  }
+  */
+  

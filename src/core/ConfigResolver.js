@@ -1,6 +1,7 @@
 class ConfigResolver {
 
     static requestResolver(req) {
+
         switch (req.headers['x-persistence']) {
         case 'rest':
             return  {FILE: 'rest', URL: 'http://localhost:3030'};
