@@ -43,8 +43,28 @@ class H2Repository {
     return res.json();
   }
 
+  async insertInSubPath(id, subPath, obj) {
+    const url = `${this.apiEndpoint}/${id}/${subPath}`
+    const res = await fetch(url, {
+      method: 'POST',
+      body: JSON.stringify(obj),
+      headers
+    });
+    return res.json();
+  }
+
   async update(id, obj) {
     const url = `${this.apiEndpoint}/${id}`;
+
+    const res = await fetch(url, {
+      method: 'PUT',
+      body: JSON.stringify(obj),
+      headers
+    });
+    return res.json();
+  }
+  async updateSubPath(id, subPath, obj) {
+    const url = `${this.apiEndpoint}/${id}/${subPath}`
 
     const res = await fetch(url, {
       method: 'PUT',
