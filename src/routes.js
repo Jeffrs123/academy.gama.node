@@ -36,7 +36,46 @@ module.exports = [
       auth: false
     }
   },
-  
+  {
+    method: 'PUT',
+    path: '/alunos/{id}',
+    handler: AlunosController.updateAlunoById,
+    config: {
+      auth: false
+    }
+  },
+  {
+    method: 'DELETE',
+    path: '/alunos/{id}',
+    handler: AlunosController.deleteAlunoById,
+    config: {
+      auth: false
+    }
+  },
+  {
+    method: 'GET',
+    path: '/alunos/{id}/notas',
+    handler: AlunosController.getNotasAlunoById,
+    config: {
+      auth: false
+    }
+  },
+  {
+    method: 'POST',
+    path: '/alunos/{id}/notas',
+    handler: AlunosController.createNotasAlunoById,
+    config: {
+      auth: false
+    }
+  },
+  {
+    method: 'PUT',
+    path: '/alunos/{id}/notas/{notaId}',
+    handler: AlunosController.atualizarNotasAlunoById,
+    config: {
+      auth: false
+    }
+  },
 ];
   /*{
     method: 'GET',

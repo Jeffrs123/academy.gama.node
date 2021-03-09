@@ -8,6 +8,7 @@ class AlunosRepository extends MongoDbRepository {
     }
 
     async list(query = {}) {
+        console.log("chamado pelo node MONGO DB")
         const val = await this.resolverQuery(query);
         return super.list(val);
     }
@@ -20,6 +21,10 @@ class AlunosRepository extends MongoDbRepository {
             query = {}
         }
         return query;
+    }
+
+    async getNotasAlunoById() {
+        
     }
 }
 

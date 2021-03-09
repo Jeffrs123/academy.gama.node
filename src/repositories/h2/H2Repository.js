@@ -1,4 +1,7 @@
 const fetch = require('node-fetch');
+const Headers = fetch.Headers;
+const headers = new Headers();
+headers.set("Content-Type", "application/json")
 
 class H2Repository {
   /**
@@ -19,6 +22,12 @@ class H2Repository {
     return res.json();
   }
 
+  async listSubPath(id,subPath) {
+    const url = `${this.apiEndpoint}/${id}/${subPath}`
+    const res = await fetch(url);
+    return res.json();
+  }
+
   async getById(id) {
     const url = `${this.apiEndpoint}/${id}`;
     const res = await fetch(url);
@@ -28,7 +37,8 @@ class H2Repository {
   async insert(obj) {
     const res = await fetch(this.apiEndpoint, {
       method: 'POST',
-      body: JSON.stringify(obj)
+      body: JSON.stringify(obj),
+      headers
     });
     return res.json();
   }
@@ -37,8 +47,9 @@ class H2Repository {
     const url = `${this.apiEndpoint}/${id}`;
 
     const res = await fetch(url, {
-      method: 'PATCH',
-      body: JSON.stringify(obj)
+      method: 'PUT',
+      body: JSON.stringify(obj),
+      headers
     });
     return res.json();
   }
@@ -48,6 +59,7 @@ class H2Repository {
     const res = await fetch(url, {
       method: 'DELETE'
     });
+
     return res.json();
   }
 }
