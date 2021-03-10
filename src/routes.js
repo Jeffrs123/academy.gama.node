@@ -6,7 +6,7 @@ const AutorizacaoController = require('./controllers/AutorizacaoController.js');
 module.exports = [
   {
     method: 'POST',
-    path: '/token',
+    path: '/api/v2/token',
     handler: AutorizacaoController.token,
     config: {
       auth: false
@@ -14,42 +14,42 @@ module.exports = [
   },
   {
     method: 'POST',
-    path: '/alunos',
+    path: '/api/v2/alunos',
     handler: AlunosController.createAluno
   },
   {
     method: 'GET',
-    path: '/alunos',
+    path: '/api/v2/alunos',
     handler: AlunosController.getAllAlunos
   },
   {
     method: 'GET',
-    path: '/alunos/{id}',
+    path: '/api/v2/alunos/{id}',
     handler: AlunosController.getAlunoById
   },
   {
     method: 'PUT',
-    path: '/alunos/{id}',
+    path: '/api/v2/alunos/{id}',
     handler: AlunosController.updateAlunoById
   },
   {
     method: 'DELETE',
-    path: '/alunos/{id}',
+    path: '/api/v2/alunos/{id}',
     handler: AlunosController.deleteAlunoById
   },
   {
     method: 'GET',
-    path: '/alunos/{id}/notas',
+    path: '/api/v2/alunos/{id}/notas',
     handler: AlunosController.getNotasAlunoById
   },
   {
     method: 'POST',
-    path: '/alunos/{id}/notas',
+    path: '/api/v2/alunos/{id}/notas',
     handler: AlunosController.createNotasAlunoById
   },
   {
     method: 'PUT',
-    path: '/alunos/{id}/notas/{notaId}',
+    path: '/api/v2/alunos/{id}/notas/{notaId}',
     handler: AlunosController.atualizarNotasAlunoById
   },
 ];

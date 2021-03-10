@@ -10,6 +10,12 @@ class MongoDbRepository {
     return this.collection.find(query).toArray();
   }
 
+  async listSubPath(id, subPath, forengKey) {
+    const _id = ObjectId.createFromHexString(id);
+    const subItems = await this.db.collection(subPath).find({[forengKey]: _id}).toArray();
+    return subItems;
+  }
+
   async get(query = {}, options = {}) {
     return this.collection.findOne(query, options);
   }
@@ -24,11 +30,18 @@ class MongoDbRepository {
     return ops[0];
   }
 
+  async insertInSubPath(id, subPath, doc, forengKey) {
+    const _id = ObjectId.createFromHexString(id);
+    const { ops } = await this.db.collection(subPath).insertOne({ ...doc, [forengKey]: _id});
+    return ops[0];
+  }
+
   async update(id, obj) {
     const _id = ObjectId.createFromHexString(id);
     const { modifiedCount } = await this.collection.updateOne({ _id }, {
       $set: obj
     });
+    console.log("modifiedCount", modifiedCount)
     return modifiedCount;
   }
 
