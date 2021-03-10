@@ -7,10 +7,10 @@ exports.createAluno = async (req, h) => {
 }
 
 exports.getAllAlunos = async (req, h) => {
-    const AlunosRepository = require(`../repositories/${ConfigResolver.requestResolver(req).FILE}/AlunosRepository.js`);
-    const repositorio = new AlunosRepository(ConfigResolver.requestResolver(req).URL);
-    
-    return repositorio.list(req.query);
+  const AlunosRepository = require(`../repositories/${ConfigResolver.requestResolver(req).FILE}/AlunosRepository.js`);
+  const repositorio = new AlunosRepository(ConfigResolver.requestResolver(req).URL);
+  
+  return repositorio.list(req.query);
 }
 
 exports.getAlunoById = async (req, h) => {
@@ -41,11 +41,11 @@ exports.getNotasAlunoById  = async (req, h) => {
 exports.createNotasAlunoById  = async (req, h) => {
   const AlunosRepository = require(`../repositories/${ConfigResolver.requestResolver(req).FILE}/AlunosRepository.js`);
   const repositorio = new AlunosRepository(ConfigResolver.requestResolver(req).URL);
-  return repositorio.createNotasAlunoById(req.params.id);
+  return repositorio.createNotasAlunoById(req.params.id, req.payload);
 }
 
 exports.atualizarNotasAlunoById  = async (req, h) => {
   const AlunosRepository = require(`../repositories/${ConfigResolver.requestResolver(req).FILE}/AlunosRepository.js`);
   const repositorio = new AlunosRepository(ConfigResolver.requestResolver(req).URL);
-  return repositorio.atualizarNotasAlunoById(req.params.id, req.params.notaId);
+  return repositorio.atualizarNotasAlunoById(req.params.id, req.params.notaId, req.payload);
 }

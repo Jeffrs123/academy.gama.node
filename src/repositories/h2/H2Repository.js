@@ -44,6 +44,8 @@ class H2Repository {
   }
 
   async insertInSubPath(id, subPath, obj) {
+    
+    console.log("cheguei no insertInSubPath do H2 repository");
     const url = `${this.apiEndpoint}/${id}/${subPath}`
     const res = await fetch(url, {
       method: 'POST',
@@ -63,8 +65,8 @@ class H2Repository {
     });
     return res.json();
   }
-  async updateSubPath(id, subPath, obj) {
-    const url = `${this.apiEndpoint}/${id}/${subPath}`
+  async updateSubPath(id, subPath, notaId, obj) {
+    const url = `${this.apiEndpoint}/${id}/${subPath}/${notaId}`
 
     const res = await fetch(url, {
       method: 'PUT',
