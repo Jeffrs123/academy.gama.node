@@ -35,7 +35,10 @@ class AlunosRepository extends MongoDbRepository {
     }
 
     async atualizarNotasAlunoById(id, notaId, obj) {
-        return super.updateSubPath(id, "notas", notaId, obj)
+        const media_conceito = await this.calcularMedia(obj);
+        const status_aprovacao = await this.calcularStatusAprovacao(media_conceito);
+        const fullDoc = { ...obj, media_conceito, status_aprovacao};
+        return super.updateSubPath(id, "notas", notaId, fullDoc)
     }
 
     async calcularStatusAprovacao(status_aprovacao) {

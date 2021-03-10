@@ -45,6 +45,20 @@ class MongoDbRepository {
     return modifiedCount;
   }
 
+  async updateSubPath(id, subPath, notaId, obj) {
+    const alunoExiste = this.getById(id);
+    const _id = ObjectId.createFromHexString(notaId);
+    var status = {};
+    if(alunoExiste) {
+      status = await this.db.collection(subPath).updateOne({ _id }, {
+        $set: obj
+      });
+    }
+
+    return status.modifiedCount;
+  }
+  
+
   async delete(id) {
     const _id = ObjectId.createFromHexString(id);
     const resultado = await this.collection.deleteOne({ _id });
