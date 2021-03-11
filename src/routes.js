@@ -1,5 +1,5 @@
 const LinguagemController = require('./controllers/LinguagemController.js');
-const LancamentosController = require('./controllers/LancamentosControllerPoliglota.js');
+// const LancamentosController = require('./controllers/LancamentosControllerPoliglota.js');
 const AlunosController = require('./controllers/AlunosControllerPoliglota.js')
 const AutorizacaoController = require('./controllers/AutorizacaoController.js');
 
